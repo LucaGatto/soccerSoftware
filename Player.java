@@ -1,21 +1,37 @@
-public class Player {
 
+public class Player {
+	
 	private String name;
-	private String surname;
 	private int age;
 	
-	public Player(String name, String surname, int age){
+	public Player(String name, int age){
+		
 		this.name = name;
-		this.surname = surname;
 		this.age = age;
 	}
 	
-	public String getName(){
-		return this.name + this.surname;
+	public Player setName(String name){
+		
+		this.name = name;
+		return this;
 	}
-	
-	private int getAge(){
+	public String getName(){
+		
+		return this.name;
+	}
+	public Player setAge(int age){
+		
+		this.age = age;
+		return this;
+	}
+	public int getAge(){
+		
 		return this.age;
 	}
 	
+	
+	
+	
+
 }
+	

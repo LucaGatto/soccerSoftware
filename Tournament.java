@@ -1,21 +1,16 @@
-import java.util.ArrayList;
-import java.util.List;
+// this class will contain :
+//matches's calendar,
+//results,
+//quarter finals,
+//semifinals,
+//final
 
-public class Tournament {
+public class Tournament extends Calendar {
+	
+	private Date 
 
-	private String name;
-	
-	private List<Team> teams = new ArrayList<>();
-	private Calendar calendar;
-	private String results;
-	private String quarter;
-	private String semi;
-	private String finalMatch;
-	
-	public Tournament(String name,List<Team> teams){
-		this.name = name;
-		this.teams = teams;
-		this.calendar = new Calendar(this.teams);
-	}
-	
 }
+//turneu -> 8 ekipe minimumi per te filluar turneun-cerekfinale
+//semifinals -4 ekipe
+//
+
