@@ -1,11 +1,10 @@
 import java.util.*;
 public class Elemination {
 	
+	//round -->which is the round final,semifinal,quarter
+	private String round;
 	private Date date;
-	private List<Team> matches = new ArrayList();
-	private List<Team> column1 = new ArrayList();
-	private List<Team> column2 = new ArrayList();
-	
+	private List<Match> matches = new ArrayList();
 	
 	
 	public Elemination(Date date){
@@ -24,22 +23,33 @@ public class Elemination {
 		return this.date;
 	}
 	
-	//fusim listen e ekipeve => random => zgjedhim ndeshjet => per me kollaj i ndajme ne dy lista dhe i kapim me index
-	public Date getMatches(List<Team> teams){
+	public Elemination setMatches(List<Team> teams){
 		
 		for(int i = 0; i < teams.size(); i++){
-		
-			if( (i+1) % 2 == 1){
-				
-				column1.add(teams[i]);
-			}
-			else{
-				
-				column2.add(teams[i]);
-			}
 			
+			matches.add(new Match(teams.get(i),teams.get(i+1)));
+			
+			++i;
 		}
+		return this;
 		
 	}
-	public Date addMatch(){}
+	
+	
+	public List<Match> getMatches(){
+		
+		return this.matches;
+	}
+	
+	public Elemination setRound(String round){
+		
+		this.round = round;
+		return this;
+	}
+	public String getRound(){
+		
+		return this.round;
+	}
+	
+	//public Date addMatch(){}
 }
