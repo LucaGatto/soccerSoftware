@@ -1,7 +1,7 @@
 
 public class Match {
 	
-	private String arbiter;
+	private String arbiter; //nei tornei di calcetto solitamente l'arbitro è uno solo, non credo sia necessario, cosi come il costruttore che ne tiene conto 
 	private Team team1;
 	private Team team2;
 	
