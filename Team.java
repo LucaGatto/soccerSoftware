@@ -6,10 +6,10 @@ public class Team {
 	private String name;
 	private String coachName;
 	//the maximum number of players of a team is 24
-	private static final int maxPlayers = 24;
+	private static final int maxPlayers = 24; //in realtà nel calcetto il numero massimo di giocatori è più piccolo, 10 o 15, ma non credo sia un elemento necessario..
 	private List <Player> players = new ArrayList();
 	
-	
+	// 3 costruttori indicano errori di design, possono essere lasciati in questa prima versione, ma dovranno poi essere sostituiti da 1 unico costruttore
 	public Team(String name, String coachName, List<Player> players){
 		
 		this.name = name;
