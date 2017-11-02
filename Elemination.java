@@ -35,7 +35,6 @@ public class Elemination {
 		
 	}
 	
-	
 	public List<Match> getMatches(){
 		
 		return this.matches;
