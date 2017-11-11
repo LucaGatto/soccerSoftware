@@ -18,4 +18,12 @@ public class Matchweek {
 	protected List<Match> getMatches(){
 		return this.matches;
 	}
+	
+	public String getResults() {
+		String s = "";
+		for(Match m : matches) {
+			s += m.getTeam1() + " " + m.getResult() + " " + m.getTeam2() + "\n";
+		}
+		return s;
+	}
 }

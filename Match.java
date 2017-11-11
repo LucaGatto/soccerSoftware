@@ -4,6 +4,9 @@ public class Match {
 	private Team team1;
 	private Team team2;
 	
+	private int goalTeam1 = -1;
+	private int goalTeam2 = -1;
+	
 	private String result = "match not played yet";
 	
 	/*public Match(Team t1, Team t2,String a){
@@ -18,12 +21,29 @@ public class Match {
 		this.team2 = t2;
 	}
 	
-	public void addResult(String result) {
-		this.result = result;
+	public void setResult(int gteam1, int gteam2) {
+		this.goalTeam1 = gteam1;
+		this.goalTeam2 = gteam2;
 	}
 	
 	public String getResult() {
 		return this.result;
+	}
+	
+	public Team getTeam1() {
+		return this.team1;
+	}
+	
+	public Team getTeam2() {
+		return this.team2;
+	}
+	
+	public int getGoalTeam1() {
+		return this.goalTeam1;
+	}
+	
+	public int getGoalTeam2() {
+		return this.goalTeam2;
 	}
 	
 }
