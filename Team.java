@@ -6,6 +6,7 @@ public class Team {
 	private List<Player> team = new ArrayList<>();
 	private String name;
 	
+	private int matchWon = 0; 
 	private List<Tournament> tournamentsWon = new ArrayList<>();
 	
 	public Team(String name){
@@ -18,7 +19,7 @@ public class Team {
 		return this.name;
 	}
 	
-	private List<Player> getPlayers(){
+	public List<Player> getPlayers(){
 		return this.team;
 	}
 	
@@ -28,7 +29,7 @@ public class Team {
 	
 	//----
 	
-	private void addPlayer(Player player){
+	public void addPlayer(Player player){
 		this.team.add(player);
 	}
 	
@@ -36,8 +37,11 @@ public class Team {
 		this.team.remove(player);
 	}
 	
-	private void addTournamentWon(Tournament t){
+	public void addTournamentWon(Tournament t){
 		this.tournamentsWon.add(t);
 	}
 	
+	public void addMatchWon() {
+		this.matchWon++;
+	}
 }

@@ -7,7 +7,7 @@ public class PlayerCard {
 	
 	private int matchesWon;
 	
-	private PlayerCard(Player player){
+	public PlayerCard(Player player){
 		this.player = player;
 		this.matchPlayed = 0;
 		this.goalsScored = 0;
