@@ -33,6 +33,47 @@ public class SoccerField {
 		}
 	}
 	
+	public List<Team> getTeams(){
+		return this.teams;
+	}
 	
+	public void addMatchResultToTournament(String tournamentName,String matchweekName, String team1, String team2, int goalTeam1, int goalTeam2) {
+		for(Tournament tr : tournaments) {
+			if(tournamentName.equals(tr.getName())) {
+				tr.addMatchResult(matchweekName, team1, team2, goalTeam1, goalTeam2);
+			}
+		}
+	}
+	
+	public void showTournamentRanking(String tournamentName) {
+		for(Tournament tr : tournaments) {
+			if(tournamentName.equals(tr.getName())) {
+				tr.showRanking();
+			}
+		}
+	}
 
+	public void getTournamentResults(String tournamentName,Matchweek m) {
+		for(Tournament tr : tournaments) {
+			if(tournamentName.equals(tr.getName())) {
+				tr.getResults(m);
+			}
+		}
+	}
+	
+	public void printTournamentMatchweekResults(String tournamentName,Matchweek m) { // modifica matchweek con string e metodo get matchweek
+		String result = "";
+		for(Tournament tr : tournaments) {
+			if(tournamentName.equals(tr.getName())) {
+				result = tr.getResults(m);
+			}
+		}
+		System.out.println(result);
+	}
+	
+	
+	
+	
+	
+	
 }

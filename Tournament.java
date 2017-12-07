@@ -37,6 +37,10 @@ public class Tournament {
 		this.matchweek.add(new Matchweek("Quarterfinals", this.matches)); 
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	private void addMatchweek(String name,List<Team> teams){
 		
 		for(int i = 0; i < teams.size();i++){
@@ -52,7 +56,7 @@ public class Tournament {
 		return mw.getName();
 	}
 	
-	private List<Match> getMatchweekMatches(Matchweek mw){
+	public List<Match> getMatchweekMatches(Matchweek mw){
 		return mw.getMatches();
 	}
 	
@@ -66,8 +70,9 @@ public class Tournament {
 			System.out.println("The tournament isn't finished yet");
 	}
 	
-	public void getResults(Matchweek m) {
+	public String getResults(Matchweek m) {
 		results += m.getName() + "\n" + m.getResults();
+		return results;
 	}
 	
 	public void addMatchResult(String matchweekName, String team1, String team2, int goalTeam1, int goalTeam2) {
