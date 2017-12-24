@@ -15,11 +15,6 @@ public class Tournament {
 	private boolean isGold;
 	private String results = "";
 	
-	/*private String quarter;
-	private String semi;
-	private String finalMatch;
-	*/
-	
 	public Tournament(String name,List<Team> teams,int[] prizes,boolean isGold){
 		this.name = name;
 		this.teams = teams;
@@ -28,10 +23,9 @@ public class Tournament {
 		
 		this.isGold = isGold;
 		
-		for(int i = 0; i < teams.size();i++){
+		for(int i = 0; i < teams.size();i = i + 2){
 			
 			this.matches.add(new Match(teams.get(i),teams.get(i+1)));
-			++i;
 		}
 		
 		this.matchweek.add(new Matchweek("Quarterfinals", this.matches)); 
@@ -41,14 +35,16 @@ public class Tournament {
 		return this.name;
 	}
 	
-	private void addMatchweek(String name,List<Team> teams){
+	public void addMatchweek(String name,List<Team> teams){
+		
+		List<Match> temp = new ArrayList<>();
 		
 		for(int i = 0; i < teams.size();i++){
 			
-			this.matches.add(new Match(teams.get(i),teams.get(i+1)));
+			temp.add(new Match(teams.get(i),teams.get(i+1)));
 			++i;
 		}
-		this.matchweek.add(new Matchweek(name, this.matches));
+		this.matchweek.add(new Matchweek(name, temp));
 		
 	}
 	
@@ -71,22 +67,32 @@ public class Tournament {
 	}
 	
 	public String getResults(Matchweek m) {
+		results = "";
 		results += m.getName() + "\n" + m.getResults();
 		return results;
 	}
 	
+	public List<Matchweek> getMatchweek() {
+		return this.matchweek;
+	}
+	
 	public void addMatchResult(String matchweekName, String team1, String team2, int goalTeam1, int goalTeam2) {
-		for (Matchweek m : matchweek) {
+		List<Matchweek> temporaryList = new ArrayList<>();
+		for(int i= 0 ; i < matchweek.size(); i++){
+			temporaryList.add(matchweek.get(i));
+		}
+		for (Matchweek m : temporaryList) {
 			if(m.getName().equals(matchweekName)) {
 				boolean endOfMatchweek = true;
 				for (Match mt : m.getMatches()) {
-					if(mt.getTeam1().equals(team1) && mt.getTeam2().equals(team2)) {
+					if(mt.getTeam1().getName().equals(team1) && mt.getTeam2().getName().equals(team2)) {
 						mt.setResult(goalTeam1, goalTeam2);
 					}
 					if(mt.getGoalTeam1() < 0 && mt.getGoalTeam2() < 0) {
 						endOfMatchweek = false;
 					}
 				}
+			
 				if(endOfMatchweek) {
 					List<Team> teamNextMw = new ArrayList<>();
 					List<Team> teamLosers = new ArrayList<>();
@@ -126,4 +132,27 @@ public class Tournament {
 			}
 		}		
 	}
+	
+	public void getTournamentResults() {
+		for (Matchweek mw : this.getMatchweek()) {
+				System.out.println(mw.getName());	
+				System.out.println(mw.getResults());
+				System.out.println();
+				}
+	}
+	
+	public void getMatchweekResults(String matchweekName) {
+		String result = "";
+		for(Matchweek m : this.getMatchweek()) {
+			if(m.getName().equals(matchweekName))
+			result = m.getResults();
+		}
+		System.out.println(result);
+	}
+	
+	
+	
+	
+	
+	
 }

@@ -1,6 +1,5 @@
 public class Match {
 	
-	//private String arbiter; //nei tornei di calcetto solitamente l'arbitro è uno solo, non credo sia necessario, cosi come il costruttore che ne tiene conto 
 	private Team team1;
 	private Team team2;
 	
@@ -9,12 +8,6 @@ public class Match {
 	
 	private String result = "match not played yet";
 	
-	/*public Match(Team t1, Team t2,String a){
-		
-		this.team1 = t1;
-		this.team2 = t2;
-		this.arbiter = a;	
-	}*/
 	public Match(Team t1, Team t2){
 		
 		this.team1 = t1;
@@ -24,6 +17,7 @@ public class Match {
 	public void setResult(int gteam1, int gteam2) {
 		this.goalTeam1 = gteam1;
 		this.goalTeam2 = gteam2;
+		this.result = this.goalTeam1 + " : " + this.goalTeam2;
 	}
 	
 	public String getResult() {
@@ -46,4 +40,33 @@ public class Match {
 		return this.goalTeam2;
 	}
 	
+	public void endMatch(){
+		
+		if(this.getGoalTeam1() > this.getGoalTeam2()){
+			
+			this.getTeam1().addMatchWon();
+			
+		}
+		else if(this.getGoalTeam1() < this.getGoalTeam2()){
+			
+			this.getTeam2().addMatchWon();
+		}
+	}
+	public void addGoal(Team t ,Player p){
+		
+		if(t.equals(team1)){
+			if(this.goalTeam1 == -1)
+				this.goalTeam1 = 1;
+			else
+				this.goalTeam1 ++;
+		}		
+		else if(t.equals(team2)){
+			if(this.goalTeam2 == -1)
+				this.goalTeam2 = 1;
+			else
+				this.goalTeam2 ++;
+		}
+		p.addGoalScored();
+	}
+
 }

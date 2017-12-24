@@ -22,7 +22,7 @@ public class Matchweek {
 	public String getResults() {
 		String s = "";
 		for(Match m : matches) {
-			s += m.getTeam1() + " " + m.getResult() + " " + m.getTeam2() + "\n";
+			s += m.getTeam1().getName() + " " + m.getResult() + " " + m.getTeam2().getName() + "\n";
 		}
 		return s;
 	}

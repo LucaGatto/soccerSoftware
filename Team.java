@@ -43,5 +43,13 @@ public class Team {
 	
 	public void addMatchWon() {
 		this.matchWon++;
+		for(Player p : team) {
+			p.getPcard().addMatchWon();
+		}
 	}
+	
+	public int getMatchesWon() {
+		return this.matchWon;
+	}
+	
 }
