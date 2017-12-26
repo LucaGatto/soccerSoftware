@@ -8,7 +8,7 @@ public class Tournament {
 	private List<Match> matches = new ArrayList<>();
 	private List<Matchweek> matchweek = new ArrayList<>();
 	
-	private Team[] winners = new Team[3];
+	private String[] winners = new String[3];
 	private int[] prizes = new int[3];
 	private boolean endOfTournament = false;
 	
@@ -35,6 +35,10 @@ public class Tournament {
 		return this.name;
 	}
 	
+	public List<Team> getTeams(){
+		return this.teams;
+	}
+	
 	public void addMatchweek(String name,List<Team> teams){
 		
 		List<Match> temp = new ArrayList<>();
@@ -58,6 +62,7 @@ public class Tournament {
 	
 	public void showRanking() {
 		if(endOfTournament) {
+			System.out.println("POS \t TEAM \t PRIZE");
 			for(int i=0; i < winners.length;i++) {
 				System.out.println((i + 1) + "\t" + winners[i] + "\t" + prizes[i]);
 			}
@@ -117,15 +122,15 @@ public class Tournament {
 					else if(m.getName().equals("Final")) {
 						Team winner = teamNextMw.get(0);
 						winner.addTournamentWon(this);
-						winners[1] = winner;
-						winners[2] = teamLosers.get(0);
-						if(winners[3] != null)
+						winners[0] = winner.getName();
+						winners[1] = teamLosers.get(0).getName();
+						if(winners[2] != null)
 							endOfTournament = true;
 							
 					}
 					else if(m.getName().equals("Final 3rd place")) {
-						winners[3] = teamNextMw.get(0);
-						if(winners[1] != null)
+						winners[2] = teamNextMw.get(0).getName();
+						if(winners[0] != null)
 							endOfTournament = true;
 					}
 				}
