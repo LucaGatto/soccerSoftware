@@ -1,0 +1,31 @@
+Ho creato l'interfaccia IMatchweekCreator e la classe SimpleMatchweekCreator che la implementa,
+ in pratica ho applicato Strategy per la creazione di una giornata(matchweek).
+
+La classe SimplMatchCreator viene passata nel costruttore del torneo,
+ cosi crea automaticamente la prima giornata e la richiama ogni volta che ne deve creare una nuova.
+ 
+Ho eliminato il lunghissimo metodo addMatchResult(), ridistribuendo le varie operazioni all'interno 
+ delle altre classi (nella classe Match e nella classe Matchweek più che altro) e creando un paio di metodi al posto suo AddGoal() ed endMatch().
+ 
+Match adesso ha un boolean che definisce quando un match è terminato, 
+ viene usato da Matchweek per verificare che tutti i Match della sua lista siano terminati, così tournament crea la matchweek successiva.
+ 
+addGoal() invece serve ad inserire i goal di un match, stampa anche il nome del giocatore che ha fatto goal
+
+matchweekEndingOperation() viene richiamato quando tutti i match di una giornata sono terminati, 
+ sceglie in base alla giornata passata qual è la prossima da creare e in caso di finali assegna il torneo vinto alla squadra,
+ controlla se il torneo è terminato ed in caso prepara anche le string per la stampa della classifica.
+ 
+Ho eliminato alcune variabili (ad esempio List<Match> di tournament) che non erano necessarie o non venivano mai usate
+
+Avevo pensato di creare delle classi per ogni giornata (Quarterfinals, Semifinals, ecc...) con extend Abstract Matchweek,
+ poi però ho rinunciato perchè praticamente sarebbero tutte identiche.
+ Potevano essere utili se avessi utilizzato un Visitor dentro al metodo matchweekEndingOperation(), ma è molto complicato e
+ secondo me non è necessario da fare al posto di pochi if-else
+
+showRanking() è rimasta la stessa perchè la rivedremo in futuro
+
+Ho creato ed aggiunto qui un main test in cui verifico il corretto funzionamento e spiego i pochi passaggi fatti
+
+Se puoi scaricati tutta la cartella sul pc, fai una copia e chiamala v2 in cui implementi il tuo codice,
+ così abbiamo tutte le versioni che si aggiornano come vuole il prof.
