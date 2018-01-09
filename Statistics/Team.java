@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team implements IStatistics{
+public class Team {
 
 	private List<Player> team = new ArrayList<>();
 	private String name;
@@ -52,10 +52,5 @@ public class Team implements IStatistics{
 	public int getMatchesWon() {
 		return this.matchWon;
 	}
-	@Override
-	public void ShowStatisctics() {
-		
-		System.out.println("Statistics of  " + this.getName() + " : Matches Won = " + this.getMatchesWon() + " ; Tournaments Won = " + this.getTournamentsWon().size());
-		
-	}
+	
 }

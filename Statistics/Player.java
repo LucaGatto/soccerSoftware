@@ -1,6 +1,6 @@
 
 
-public class Player implements IStatistics{
+public class Player {
 
 	private String name;
 	private int age;
@@ -32,10 +32,6 @@ public class Player implements IStatistics{
 		this.getPcard().addGoalScored();
 		System.out.println("GOOOOOL: " + this.getName() + "!!!!!");
 	}
-	@Override
-	public void ShowStatisctics(){
-		
-		System.out.println("Statistics of Player " + this.getName() + "  : Matches won = " + this.getPcard().getMatchesWon() + " ; Goals scored = " + this.getPcard().getGoalsScored());
-	}
+	
 	
 }

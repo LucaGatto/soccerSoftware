@@ -65,6 +65,7 @@ public class Test {
 		trn.addGoal(m1, t3, p3); // per comodità faccio finire tutte 1 - 0
 		trn.addGoal(m2, t5, p5);
 		trn.addGoal(m3, t7, p7);
+		trn.addGoal(m3, t7, p7);
 		
 		trn.endMatch(quarter, m0); //devo segnalare quando una partita è terminata
 		trn.endMatch(quarter, m1);
@@ -108,9 +109,20 @@ public class Test {
 		 
 		Calcetto c = new Calcetto();
 		c.setTeams(team);
-	
-		c.accessStatistics(p7);//statistics of player 
-		c.accessStatistics(t7);//statistics of team
+		
+		
+		
+		GoalScoredStatistic gss =  new GoalScoredStatistic(p7);
+		c.accessStatistics(gss); 
+		trn.addGoal(m3, t7, p7);
+		
+		c.accessStatistics(gss); //si aggirona
+		
+		c.accessStatistics(new MatchesWonTeam(t7));
+		
+		c.accessStatistics(new TouramentWonTeam(t7));
+		c.accessStatistics(new MatchesWonPlayer(p7)); 
+		
 		
 	}
 
