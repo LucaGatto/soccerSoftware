@@ -1,0 +1,15 @@
+l'implementazione alla fine non è cambiata molto da come avevamo parlato..
+ho preferito evitare la list<IStatistic> perchè altrimenti è molto scomodo poi recuperare le singole statistiche ed aggiornarle.
+quindi ogni statistica viene passata nel costruttore (dependency injection).
+le classi team e playercard adesso non hanno più metodi che utilizzano le statistiche, apparte i metodi get
+
+ogni IStatistic implementa increaseStat() che fa semplicemente ++
+e showStat che fa un println del valore
+
+quindi gli aggiornamenti sono stati spostati nei metodi delle classi che effettivamente li effettuano: 
+ad esempio nel metodo endMatch della classe match adesso si effettuano gli aggiornamenti sul numero di partite giocate e quelle vinte, 
+nel metodo addGoal, che è rimasto solo per la notifica, si aumenta anche il valore del numero di gol del giocatore e
+nella classe tournament, alla fine dell'ultima giornata si incrementa anche il numero di tornei vinti per la squadra vincitrice.
+
+il metodo per richiamarli è sempre lo stesso: player.getPcard().get'NomeClasseStat'.increaseStat() oppure team.get......
+per stampare è lo stesso ma con .showStat(). Non sono riuscito a trovare di meglio, eventualmente lo commentiamo insieme.
