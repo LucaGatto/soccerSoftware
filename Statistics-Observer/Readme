@@ -1,1 +1,8 @@
 
+Per le statistiche ho creato 2 interfacce , credo che sia l'unica maniera per aggiungere statistiche nuove per Player e Team,, 
+anche se le 4 classe(PlayerGoalScored ,PlayerMatchesWon,,TeamMatchesWon & TeamTournamentWon) hanno metodi simili showStat(Player or Team).
+
+Ho fatto anche l'obersver siccome lo stavo studiando :  Nella PlayerCard, nel metodo dove si aggiungono i Goals -si notificano tutti 
+observers nella lista Observers.
+E per notificare il gestore ho fatto una classe CalcettoMaganer(forse sarebbe meglio - NotificateManager) dove si invia un'email per 
+ogni gol nel ''Manager gmail" 
